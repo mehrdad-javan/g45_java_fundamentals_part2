@@ -25,28 +25,49 @@ public class App {
         System.out.println(test.getFullName());
 */
     Scanner sc = new Scanner(System.in);
-    TestCalculator.displayMenu();
-    System.out.println("Enter Operation Type (+ , -)");
-    char operationType = sc.next().charAt(0);
+    //boolean condition = true;
 
-    System.out.println("Enter number1: ");
-    double n1 = sc.nextInt();
-    System.out.println("Enter number2: ");
-    double n2 = sc.nextInt();
+    while (true){
 
-    switch (operationType) {
-      case '+':
-        double result = TestCalculator.addition(n1, n2);
-        System.out.println(result);
+
+      TestCalculator.displayMenu();
+      System.out.println("Enter Operation Type (+ , -)");
+      char operationType = sc.next().charAt(0);
+
+      System.out.println("Enter number1: ");
+      double n1 = sc.nextInt();
+      System.out.println("Enter number2: ");
+      double n2 = sc.nextInt();
+
+      switch (operationType) {
+        case '+':
+          double result = TestCalculator.addition(n1, n2);
+          System.out.println(result);
+          break;
+        case '-':
+          System.out.println(TestCalculator.subtraction(n1, n2));
+          break;
+
+        default:
+          System.out.println("Operation type is not valid!");
+
+      }
+
+
+      System.out.println("do you want to continue? (yes/no)");
+      String continueOperation = sc.next();
+      if (continueOperation.equalsIgnoreCase("no")){
+        //condition = false;
         break;
-      case '-':
-        System.out.println(TestCalculator.subtraction(n1, n2));
-        break;
+      }
 
-      default:
-        System.out.println("Operation type is not valid!");
+
+
 
     }
+
+
+
 
 
   }
